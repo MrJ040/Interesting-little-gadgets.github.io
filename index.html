@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码尽头的幻想</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(2px);
+            border: 1px solid #00ff00;
+            overflow: auto;
+            animation: flicker 0.3s infinite alternate;
+        }
+        .code-line {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            transition: all 0.2s;
+        }
+        .code-line:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+        .comment {
+            color: #888;
+            font-style: italic;
+        }
+        .fantasy {
+            color: #ff69b4;
+            animation: glow 1.5s infinite alternate;
+        }
+        .fade {
+            animation: fade 3s forwards;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.95; }
+            100% { opacity: 0.8; }
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
+            100% { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4; }
+        }
+        @keyframes fade {
+            0% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+            pointer-events: none;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background: #00ff00;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="code-line">// 凌晨 3:47，第 7 个通宵</div>
+        <div class="code-line">const deadline = new Date('2024-01-01 09:00:00');</div>
+        <div class="code-line">let coffee = 12; <span class="comment">// 今日咖啡因摄入量</span></div>
+        <div class="code-line">let bugs = 42; <span class="comment">// 待修复的 bug 数量</span></div>
+        <div class="code-line">let dream = null;</div>
+        <div class="code-line"></div>
+        <div class="code-line">function writeCode() {</div>
+        <div class="code-line">  <span class="comment">// 眼皮开始沉重...</span></div>
+        <div class="code-line">  if (coffee <= 0) {</div>
+        <div class="code-line">    <span class="fantasy">// 幻想：屏幕变成了海边的沙滩</span></div>
+        <div class="code-line">    <span class="fantasy">let waves = new Wave('温柔的浪花', '簌簌作响');</span></div>
+        <div class="code-line">    <span class="fantasy">let sun = new Sun('橘色', '不刺眼的温暖');</span></div>
+        <div class="code-line">    <span class="fantasy">waves.crash();</span></div>
+        <div class="code-line">    <span class="fantasy">sun.shine();</span></div>
+        <div class="code-line">  </div>
+        <div class="code-line">    <span class="fantasy">// 幻想：键盘变成了钢琴</span></div>
+        <div class="code-line">    <span class="fantasy">let piano = new Piano('乌木黑', '88 个琴键');</span></div>
+        <div class="code-line">    <span class="fantasy">piano.play('月光奏鸣曲', '缓慢而治愈');</span></div>
+        <div class="code-line">  </div>
+        <div class="code-line">    <span class="fantasy">// 幻想：产品经理说 "算了，不做了"</span></div>
+        <div class="code-line">    <span class="fantasy">let productManager = new Person('友善', '通情达理');</span></div>
+        <div class="code-line">    <span class="fantasy">productManager.say('身体重要，明天再改');</span></div>
+        <div class="code-line">  }</div>
+        <div class="code-line">  coffee--;</div>
+        <div class="code-line">  bugs > 0 && bugs--;</div>
+        <div class="code-line">  <span class="comment">// 视线开始模糊...</span></div>
+        <div class="code-line">  if (Math.random() > 0.8) {</div>
+        <div class="code-line">    <span class="fantasy">// 幻想：妈妈端来了热汤</span></div>
+        <div class="code-line">    <span class="fantasy">let mom = new Person('温柔', '牵挂');</span></div>
+        <div class="code-line">    <span class="fantasy">mom.say('快趁热喝，喝完睡觉');</span></div>
+        <div class="code-line">  }</div>
+        <div class="code-line">  requestAnimationFrame(writeCode);</div>
+        <div class="code-line">}</div>
+        <div class="code-line"></div>
+        <div class="code-line">writeCode();</div>
+        <div class="code-line"></div>
+        <div class="code-line">// 代码还在运行，但手指已经不听使唤了</div>
+        <div class="code-line"><span class="fantasy">// 最后一个幻想：世界安静了，没有 deadline，没有 bug</span></div>
+        <div class="code-line"><span class="fantasy">// 只有无尽的黑暗和温柔的风</span></div>
+        <div class="code-line"></div>
+        <div class="code-line">const end = true;<span class="cursor"></span></div>
+    </div>
+    <div class="overlay"></div>
+
+    <script>
+        // 动态添加代码行渐隐效果
+        setTimeout(() => {
+            const lines = document.querySelectorAll('.code-line');
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('fade');
+                }, 3000 + index * 100);
+            });
+        }, 8000);
+    </script>
+</body>
+</html>
